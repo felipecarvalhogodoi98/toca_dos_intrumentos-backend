@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-import { Category } from "./Category";
+import { Category } from "@entities/Category";
 
 @Entity("videos")
 export class Video {
