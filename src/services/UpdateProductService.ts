@@ -1,34 +1,30 @@
-import { Product } from "@entities/Product";
-import { ProductRequest } from "@services/CreateProductService";
+import { Category } from "@entities/Category";
+import { CategoryRequest } from "@services/CreateCategoryService";
 import { getRepository } from "typeorm";
 
-export type ProductUpdateRequest = {
+export type CategoryUpdateRequest = {
   id: string;
-} & ProductRequest;
+} & CategoryRequest;
 
-export class UpdateProductService {
+export class UpdateCategoryService {
   async execute({
     id,
     name,
-    price,
-    store_quantity,
     description,
-  }: ProductUpdateRequest): Promise<Product | Error> {
-    const repo = getRepository(Product);
+  }: CategoryUpdateRequest): Promise<Category | Error> {
+    const repo = getRepository(Category);
 
-    const product = await repo.findOne(id);
+    const category = await repo.findOne(id);
 
-    if (!product) {
-      return new Error("Product does not exists!");
+    if (!category) {
+      return new Error("Category does not exists!");
     }
 
-    product.setName(name);
-    product.setPrice(price);
-    product.setQuantity(store_quantity);
-    product.setDescription(description);
+    category.setName(name);
+    category.setDescription(description);
 
-    await repo.save(product);
+    await repo.save(category);
 
-    return product;
+    return category;
   }
 }

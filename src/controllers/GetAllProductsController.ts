@@ -1,12 +1,12 @@
-import { GetAllProductsService } from "@services/GetAllProductsService";
+import { GetAllCategoriesService } from "@services/GetAllCategoriesService";
 import { Request, Response } from "express";
 
-export class GetAllProductsController {
+export class GetAllCategoriesController {
   async handle(request: Request, response: Response) {
-    const service = new GetAllProductsService();
+    const service = new GetAllCategoriesService();
 
-    const products = await service.execute();
+    const categories = await service.execute();
 
-    return response.json(products);
+    return response.json(categories);
   }
 }

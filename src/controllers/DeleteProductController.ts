@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { DeleteProductService } from "@services/DeleteProductService";
+import { DeleteCategoryService } from "@services/DeleteCategoryService";
 
-export class DeleteProductController {
+export class DeleteCategoryController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 
-    const service = new DeleteProductService();
+    const service = new DeleteCategoryService();
 
     const result = await service.execute(id);
 

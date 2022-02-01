@@ -1,18 +1,16 @@
-import { UpdateProductService } from "@services/UpdateProductService";
+import { UpdateCategoryService } from "@services/UpdateProductService";
 import { Request, Response } from "express";
 
-export class UpdateProductController {
+export class UpdateCategoryController {
   async handle(request: Request, response: Response) {
-    const service = new UpdateProductService();
+    const service = new UpdateCategoryService();
 
     const { id } = request.params;
-    const { name, price, store_quantity, description } = request.body;
+    const { name, description } = request.body;
 
     const result = await service.execute({
       id,
       name,
-      price,
-      store_quantity,
       description,
     });
 
