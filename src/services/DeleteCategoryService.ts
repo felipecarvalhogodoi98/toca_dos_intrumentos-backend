@@ -5,7 +5,8 @@ export class DeleteCategoryService {
   async execute(id: string) {
     const repo = getRepository(Category);
 
-    if (!(await repo.findOne(id))) return new Error("Category does not exists");
+    if (!(await repo.findOne(id)))
+      return new Error("Category does not exists!");
 
     await repo.delete(id);
   }

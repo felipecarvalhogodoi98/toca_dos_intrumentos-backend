@@ -1,17 +1,15 @@
 import { Request, Response } from "express";
-import { CreateVideoService } from "@services/CreateVideoService";
+import { CreateCategoryService } from "@services/CreateCategoryService";
 
-export class CreateVideoController {
+export class CreateCategoryController {
   async handle(request: Request, response: Response) {
-    const { name, description, duration, category_id } = request.body;
+    const { name, description } = request.body;
 
-    const service = new CreateVideoService();
+    const service = new CreateCategoryService();
 
     const result = await service.execute({
       name,
       description,
-      duration,
-      category_id,
     });
 
     if (result instanceof Error)

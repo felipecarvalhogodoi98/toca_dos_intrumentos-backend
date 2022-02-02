@@ -1,4 +1,4 @@
-import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity("categories")
@@ -17,5 +17,13 @@ export class Category {
 
   constructor() {
     if (!this.id) this.id = uuid();
+  }
+
+  setName(name: string) {
+    this.name = name ? name : this.name;
+  }
+
+  setDescription(description: string) {
+    this.description = description ? description : this.description;
   }
 }
